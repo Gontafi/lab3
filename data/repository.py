@@ -7,7 +7,6 @@ from data.model import User, Wallet
 class UserRepositories:
     users_data: list[User] = field(default_factory=list)
 
-
     def create_user(self, username: str, password: str) -> None:
         user = User(username=username)
         user.set_password(password=password)
@@ -37,3 +36,5 @@ class UserRepositories:
     def convert_money(from_wallet: Wallet, to_wallet: Wallet, currency_from: str, amount: float):
         from_wallet.subtract_money(currency=currency_from, amount=amount)
         to_wallet.add_money(currency=currency_from, amount=amount)
+
+

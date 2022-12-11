@@ -33,6 +33,8 @@ class Wallet:
     def __repr__(self):
         return f'{self.currency} {self.amount}'
 
+    def __del__(self):
+        print('wallet object destroyed')
 
 @dataclass
 class User:
@@ -67,3 +69,7 @@ class User:
 
     def __repr__(self):
         return f'login:{self.username}'
+
+    def __del__(self):
+        del self.__wallets
+        print(f'User deleted {self.username}')

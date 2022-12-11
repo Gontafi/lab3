@@ -16,13 +16,14 @@ def init():
     user_handlers.sign_up(username='User', password='qweqwe123')
     user_handlers.sign_up(username='Aika', password='qweqwe123')
 
+    print('\nAvailable users default:')
+    print('username=\'daryn\', password=\'qweqwe123\'')
+    print('username=\'Magomed\', password=\'qweqwe123\'')
+    print('username=\'Alibek\', password=\'qweqwe123\'')
+    print('username=\'User\', password=\'qweqwe123\'')
+    print('username=\'Aika\', password=\'qweqwe123\'\n\n')
+
     while True:
-        print('\nAvailable users default:')
-        print('username=\'daryn\', password=\'qweqwe123\'')
-        print('username=\'Magomed\', password=\'qweqwe123\'')
-        print('username=\'Alibek\', password=\'qweqwe123\'')
-        print('username=\'User\', password=\'qweqwe123\'')
-        print('username=\'Aika\', password=\'qweqwe123\'\n\n')
         print('1.create user')
         print('2.join to user')
         command = input('Enter command or enter q (quit) to exit: ')
@@ -41,6 +42,7 @@ def init():
             user = user_handlers.sign_in(username=username, password=password)
             if user:
                 menu(user_repositories, user)
+
 
 
         else:
@@ -99,7 +101,7 @@ def menu(repos: UserRepositories, current_user: User):
 
                 if inp == 'add':
                     currency = input('write currency:')
-                    amount = input('write how many you want to transfer:')
+                    amount = input('write how many you want to add your start balance:')
                     repos.add_wallet(user=current_user, currency=currency, start_amount=float(amount))
 
                 elif inp.isdigit():
